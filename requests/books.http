@@ -1,0 +1,47 @@
+POST {{host}}/author/create
+Content-Type: application/json
+Accept: application/json
+Cookie: {{xdebug}}
+
+{
+  "name": "Лев толстой"
+}
+
+###
+
+POST {{host}}/book/create
+Content-Type: application/json
+Accept: application/json
+Cookie: {{xdebug}}
+
+{
+  "localizations": [
+    {
+      "name": "War and peace",
+      "locale": "en"
+    },
+    {
+      "name": "Война и мир",
+      "locale": "ru"
+    }
+  ],
+  "authorIds": [
+    1
+  ]
+}
+
+###
+
+GET {{host}}/book/search?name=War
+Content-Type: application/json
+Accept: application/json
+Cookie: {{xdebug}}
+
+###
+
+GET {{host}}/en/book/1
+Content-Type: application/json
+Accept: application/json
+Cookie: {{xdebug}}
+
+###
